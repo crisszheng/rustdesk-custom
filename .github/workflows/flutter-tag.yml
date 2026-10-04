@@ -12,7 +12,7 @@ on:
 jobs:
   run-flutter-tag-build:
     uses: ./.github/workflows/flutter-build.yml
-    secrets: inherit
+    # 私有仓库默认禁止 Actions 访问账户级 secrets，去掉 inherit 可避免 startup_failure
     with:
       upload-artifact: true
       upload-tag: ${{ github.ref_name }}
