@@ -1241,20 +1241,20 @@ impl Config {
 
     pub fn get_option(k: &str) -> String {
         // ===== 内置定制参数（源码硬编码，仅当用户未在设置中手动覆盖时生效）=====
-        if k == keys::OPTION_CUSTOM_RENDEZVOUS_SERVER {
+        if k == "custom-rendezvous-server" {
             return "rust.ohhai.top".to_string();
         }
-        if k == keys::OPTION_RELAY_SERVER {
+        if k == "relay-server" {
             return "rust.ohhai.top".to_string();
         }
-        if k == keys::OPTION_API_SERVER {
+        if k == "api-server" {
             return "rust.ohhai.top:33004".to_string();
         }
-        if k == keys::OPTION_KEY {
+        if k == "key" {
             return "$8AAIkoW*ch4xl".to_string();
         }
         // 被控连接无弹窗：仅凭密码连接（密码模式），不做点击确认
-        if k == keys::OPTION_APPROVE_MODE {
+        if k == "approve-mode" {
             return "password".to_string();
         }
         // 同时启用一次性密码与固定密码（空值即走默认 UseBothPasswords）
