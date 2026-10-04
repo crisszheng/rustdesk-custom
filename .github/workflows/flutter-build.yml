@@ -61,6 +61,12 @@ jobs:
       contents: read
 
     steps:
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           submodules: recursive
@@ -141,6 +147,12 @@ jobs:
           script: |
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
 
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
@@ -481,6 +493,12 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -632,6 +650,12 @@ jobs:
       - name: Install dependencies
         run: |
           brew install nasm yasm
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -758,6 +782,12 @@ jobs:
           script: |
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
+
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
 
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
@@ -1091,6 +1121,12 @@ jobs:
                tree \
                wget
 
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -1364,6 +1400,12 @@ jobs:
                tree \
                wget
 
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -1530,6 +1572,12 @@ jobs:
           if [[ "${{ matrix.job.arch }}" == "x86_64" ]]; then
             sudo apt-get install -y qemu-user-static
           fi
+
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
 
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
@@ -1857,6 +1905,12 @@ jobs:
           sudo apt-get install -y nasm
           sudo apt-get install -y qemu-user-static
 
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -2137,6 +2191,12 @@ jobs:
             core.exportVariable('ACTIONS_CACHE_URL', process.env.ACTIONS_CACHE_URL || '');
             core.exportVariable('ACTIONS_RUNTIME_TOKEN', process.env.ACTIONS_RUNTIME_TOKEN || '');
 
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -2354,6 +2414,12 @@ jobs:
           - { target: x86_64-unknown-linux-gnu, arch: x86_64 }
           - { target: aarch64-unknown-linux-gnu, arch: aarch64 }
     steps:
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -2428,6 +2494,12 @@ jobs:
               suffix: "",
             }
     steps:
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
@@ -2489,6 +2561,12 @@ jobs:
     env:
       RELEASE_NAME: web-basic
     steps:
+      - name: Configure private submodule credentials
+        if: env.RUST_GIT != ''
+        shell: bash
+        run: |
+          git config --global url."https://x-access-token:${{ secrets.RUST_GIT }}@github.com".insteadOf "https://github.com"
+
       - name: Checkout source code
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
